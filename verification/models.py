@@ -3,7 +3,8 @@ class Candidate(models.Model):
  STATUS=[("pending","Pending"),("verified","Verified"),("review","Needs Review"),("rejected","Rejected")]
  name=models.CharField(max_length=150); email=models.EmailField(); role=models.CharField(max_length=150); location=models.CharField(max_length=120,blank=True)
  skills=models.TextField(blank=True); experience_years=models.DecimalField(max_digits=4,decimal_places=1,default=0)
- resume=models.FileField(upload_to="resumes/",blank=True,null=True); resume_text=models.TextField(blank=True)
+ resume_text=models.TextField(blank=True)
+ resume_file_data=models.BinaryField(blank=True,null=True); resume_file_name=models.CharField(max_length=255,blank=True); resume_content_type=models.CharField(max_length=100,blank=True)
  ai_score=models.PositiveIntegerField(default=0); ai_verdict=models.CharField(max_length=30,default="Pending"); ai_summary=models.TextField(blank=True)
  status=models.CharField(max_length=20,choices=STATUS,default="pending"); created_at=models.DateTimeField(auto_now_add=True); updated_at=models.DateTimeField(auto_now=True)
  def skill_list(self): return [s.strip() for s in self.skills.split(",") if s.strip()]

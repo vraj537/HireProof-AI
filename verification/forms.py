@@ -1,11 +1,11 @@
 from django import forms
 from .models import Candidate,Evidence
 class CandidateForm(forms.ModelForm):
+ resume=forms.FileField(required=False,widget=forms.ClearableFileInput(attrs={"class":"form-control","accept":".pdf,.docx,.txt,.md"}))
  class Meta:
-  model=Candidate; fields=["name","email","role","location","skills","experience_years","resume"]
+  model=Candidate; fields=["name","email","role","location","skills","experience_years"]
   widgets={k:forms.TextInput(attrs={"class":"form-control"}) for k in ["name","email","role","location","skills","experience_years"]}
   widgets["skills"]=forms.TextInput(attrs={"class":"form-control","placeholder":"Python, Django, PostgreSQL, AI"})
-  widgets["resume"]=forms.ClearableFileInput(attrs={"class":"form-control","accept":".pdf,.docx,.txt,.md"})
 class EvidenceForm(forms.ModelForm):
  class Meta:
   model=Evidence; fields=["evidence_type","title","source_url","notes","verified"]

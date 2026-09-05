@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404,redirect,render
 from .models import Candidate
 from .forms import CandidateForm,EvidenceForm
@@ -12,9 +13,18 @@ def candidates(request):
 def candidate_new(request):
  form=CandidateForm(request.POST or None,request.FILES or None)
  if form.is_valid():
-  c=form.save(commit=False); c.resume_text=extract_resume_text(form.cleaned_data.get("resume")); c.save(); messages.success(request,"Candidate added. Run AI analysis to generate a verification score."); return redirect("candidate_detail",c.pk)
+  c=form.save(commit=False); upload=form.cleaned_data.get("resume")
+  if upload:
+   c.resume_text=extract_resume_text(upload); upload.seek(0); c.resume_file_data=upload.read(); c.resume_file_name=upload.name; c.resume_content_type=getattr(upload,"content_type","") or ""
+  c.save(); messages.success(request,"Candidate added. Run AI analysis to generate a verification score."); return redirect("candidate_detail",c.pk)
  return render(request,"verification/candidate_form.html",{"form":form})
 def candidate_detail(request,pk): return render(request,"verification/candidate_detail.html",{"candidate":get_object_or_404(Candidate,pk=pk),"evidence_form":EvidenceForm()})
+def candidate_resume(request,pk):
+ c=get_object_or_404(Candidate,pk=pk)
+ if not c.resume_file_data: return redirect("candidate_detail",pk)
+ resp=HttpResponse(bytes(c.resume_file_data),content_type=c.resume_content_type or "application/octet-stream")
+ resp["Content-Disposition"]=f'attachment; filename="{c.resume_file_name or "resume"}"'
+ return resp
 def analyze(request,pk):
  c=get_object_or_404(Candidate,pk=pk); score,verdict,summary=analyze_candidate(c); c.ai_score=score;c.ai_verdict=verdict;c.ai_summary=summary;c.status="verified" if score>=80 else ("review" if score>=60 else "rejected");c.save(); messages.success(request,"AI verification updated."); return redirect("candidate_detail",pk)
 def add_evidence(request,pk):
