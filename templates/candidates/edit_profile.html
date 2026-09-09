@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container pt-80 pb-80">
+  <h2>Edit Profile</h2>
+  <form method="post" style="max-width:500px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="apply-btn">Save</button>
+  </form>
+</div>
+{% endblock %}

@@ -216,87 +216,87 @@ ul {
   background-repeat: no-repeat;
 }
 .bg1 {
-  background: url(assets/images/bg/bg1.png);
+  background: url(images/bg/bg1.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .bg2 {
-  background: url(assets/images/bg/bg2.jpg);
+  background: url(images/bg/bg2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .bg3 {
-  background: url(assets/images/bg/bg3.png);
+  background: url(images/bg/bg3.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
 }
 .bg4 {
-  background: url(assets/images/bg/home6/bg.png);
+  background: url(images/bg/home6/bg.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .bg5 {
-  background: url(assets/images/bg/home7/bg.png);
+  background: url(images/bg/home7/bg.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 5px;
 }
 .bg6 {
-  background: url(assets/images/bg/home-8-bg.jpg);
+  background: url(images/bg/home-8-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 .bg7 {
-  background: url(assets/images/bg/home8-bg2.jpg);
+  background: url(images/bg/home8-bg2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .bg8 {
-  background: url(assets/images/bg/home12/dotted.png);
+  background: url(images/bg/home12/dotted.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   padding: 50px 0 50px;
 }
 .bg9 {
-  background: url(assets/images/bg/home13/counter-bg.jpg);
+  background: url(images/bg/home13/counter-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 .bg10 {
-  background: url(assets/images/bg/home13/logo-bg.jpg);
+  background: url(images/bg/home13/logo-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 .bg11 {
-  background: url(assets/images/bg/home13/subscribe-bg.jpg);
+  background: url(images/bg/home13/subscribe-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 .bg12 {
-  background: url(assets/images/bg/home13/footer-bg.html);
+  background: url(images/bg/home13/footer-bg.html);
   background-size: cover;
   background-repeat: no-repeat;
 }
 .bg13 {
-  background: url(assets/images/bg/video-text-bg15.jpg);
+  background: url(images/bg/video-text-bg15.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 140px 60px 140px 60px;
 }
 .course-shape-bg {
-  background: url(assets/images/bg/course-shape-bg.jpg);
+  background: url(images/bg/course-shape-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1016,7 +1016,7 @@ blockquote p {
   background: #1c335f;
 }
 .rs-video-home9 {
-  background: url(assets/images/video/video2.jpg);
+  background: url(images/video/video2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -1026,7 +1026,7 @@ blockquote p {
   display: block;
 }
 .rs-video .video-item {
-  background: url(assets/images/bg/video-bg-15.jpg);
+  background: url(images/bg/video-bg-15.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   padding: 299px 0 299px 0;
@@ -3991,7 +3991,7 @@ body .modal-backdrop {
 ---------------------------------------*/
 .rs-banner.style1 {
   padding: 125px 0 425px;
-  background: url(assets/images/banner/home1.jpg);
+  background: url(images/banner/home1.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -4008,7 +4008,7 @@ body .modal-backdrop {
   line-height: 30px;
 }
 .rs-banner.style3 {
-  background: url(assets/images/banner/home3.jpg);
+  background: url(images/banner/home3.jpg);
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -4041,7 +4041,7 @@ body .modal-backdrop {
   transform: translateY(-50%);
 }
 .rs-banner.style4 {
-  background: url(assets/images/banner/home4.jpg);
+  background: url(images/banner/home4.jpg);
   background-size: cover;
   background-position: center;
   min-height: 935px;
@@ -4099,7 +4099,7 @@ body .modal-backdrop {
   right: 0;
 }
 .rs-banner.style6 {
-  background: url(assets/images/banner/home6/bg.png);
+  background: url(images/banner/home6/bg.png);
   background-size: cover;
   background-position: center;
   margin-bottom: 54px;
@@ -4183,7 +4183,7 @@ body .modal-backdrop {
   right: 15px;
 }
 .rs-banner.style7 {
-  background: url(assets/images/banner/home7/banner-bg.jpg);
+  background: url(images/banner/home7/banner-bg.jpg);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -4223,7 +4223,7 @@ body .modal-backdrop {
   bottom: 88px;
 }
 .rs-banner.style8 {
-  background: url(assets/images/banner/home9.jpg);
+  background: url(images/banner/home9.jpg);
   background-size: cover;
   background-position: center;
   display: grid;
@@ -4249,7 +4249,7 @@ body .modal-backdrop {
   margin-bottom: 45px;
 }
 .rs-banner.style9 {
-  background: url(assets/images/banner/home11/banner.jpg);
+  background: url(images/banner/home11/banner.jpg);
   background-size: cover;
   display: grid;
   align-items: center;
@@ -4315,7 +4315,7 @@ body .modal-backdrop {
   font-size: 20px;
 }
 .rs-banner.style10 {
-  background: url(assets/images/banner/home12/banner-home12.jpg);
+  background: url(images/banner/home12/banner-home12.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display: grid;
@@ -4366,7 +4366,7 @@ body .modal-backdrop {
   width: 600px;
 }
 .rs-banner.style11 {
-  background: url(assets/images/banner/home13/banner.jpg);
+  background: url(images/banner/home13/banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -4419,7 +4419,7 @@ body .modal-backdrop {
 }
 .rs-banner.style12 {
   background-color: #F9F7F8;
-  background-image: url(assets/images/banner/home14/border.png);
+  background-image: url(images/banner/home14/border.png);
   background-position: bottom left;
   background-repeat: no-repeat;
   padding: 100px 0px 100px 0px;
@@ -4480,7 +4480,7 @@ body .modal-backdrop {
   width: 620px;
 }
 .rs-banner.style13 {
-  background-image: url(assets/images/banner/home15/banner-1.jpg);
+  background-image: url(images/banner/home15/banner-1.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -4647,13 +4647,13 @@ body .modal-backdrop {
   margin-left: -5px;
 }
 .rs-slider.style1 .slider-content.slide1 {
-  background: url(assets/images/slider/h2-1.jpg);
+  background: url(images/slider/h2-1.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 .rs-slider.style1 .slider-content.slide2 {
-  background: url(assets/images/slider/h2-2.jpg);
+  background: url(images/slider/h2-2.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -4802,13 +4802,13 @@ body .modal-backdrop {
   margin-bottom: 65px;
 }
 .rs-slider.main-home .slider-content.slide1 {
-  background: url(assets/images/slider/main-home/1.jpg);
+  background: url(images/slider/main-home/1.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 .rs-slider.main-home .slider-content.slide2 {
-  background: url(assets/images/slider/main-home/2.jpg);
+  background: url(images/slider/main-home/2.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -4946,7 +4946,7 @@ body .modal-backdrop {
   z-index: -1;
 }
 .breadcrumbs1 {
-  background-image: url(assets/images/breadcrumbs/1.jpg);
+  background-image: url(images/breadcrumbs/1.jpg);
   background-size: cover;
   background-position: center;
   background-position: center top;
@@ -5113,7 +5113,7 @@ body .modal-backdrop {
 }
 .rs-about.style2 .about-intro {
   border-radius: 3px;
-  background: url(assets/images/bg/about-intro-bg.jpg);
+  background: url(images/bg/about-intro-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   padding: 88px 50px 95px;
@@ -5251,7 +5251,7 @@ body .modal-backdrop {
   float: left;
 }
 .rs-about.style5 {
-  background-image: url(assets/images/bg/about-bg.jpg);
+  background-image: url(images/bg/about-bg.jpg);
   background-size: cover;
   background-position: center;
 }
@@ -5371,7 +5371,7 @@ body .modal-backdrop {
   margin-top: -70px;
 }
 .rs-about.video-img {
-  background: url(assets/images/video/bg.png);
+  background: url(images/video/bg.png);
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -5656,7 +5656,7 @@ body .modal-backdrop {
   margin: 0;
 }
 .rs-services.home12-style {
-  background: url(assets/images/bg/home12/services-bg.jpg);
+  background: url(images/bg/home12/services-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -5946,7 +5946,7 @@ body .modal-backdrop {
   background-position: center;
 }
 .rs-categories.home11-style .img-part {
-  background: url(assets/images/categories/home11/1.jpg);
+  background: url(images/categories/home11/1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -7217,7 +7217,7 @@ body .modal-backdrop {
 .free-course-contact {
   margin: 0px;
   padding: 40px 50px 50px;
-  background: url(assets/images/bg/course-contact-bg.jpg);
+  background: url(images/bg/course-contact-bg.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -8239,7 +8239,7 @@ body .modal-backdrop {
   opacity: 0.7;
 }
 .why-choose-us.style3 {
-  background: url(assets/images/bg/home12/why-learn-bg.jpg);
+  background: url(images/bg/home12/why-learn-bg.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -8965,7 +8965,7 @@ body .modal-backdrop {
 }
 .rs-testimonial.style3 .testi-item {
   background-color: #f3f8f9;
-  background-image: url(assets/images/testimonial/cloud-pattern.png);
+  background-image: url(images/testimonial/cloud-pattern.png);
   background-repeat: no-repeat;
   background-size: 130%;
   background-position: 0 70px;
@@ -9075,7 +9075,7 @@ body .modal-backdrop {
   margin: -10px;
 }
 .rs-testimonial.style5 {
-  background: url(assets/images/bg/testi-bg.jpg);
+  background: url(images/bg/testi-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -9244,7 +9244,7 @@ body .modal-backdrop {
   margin: -10px;
 }
 .rs-testimonial.main-home {
-  background: url(assets/images/bg/main-home.jpg);
+  background: url(images/bg/main-home.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -9500,7 +9500,7 @@ body .modal-backdrop {
   background: #ff5421 !important;
 }
 .rs-testimonial.home12-style {
-  background: url(assets/images/bg/home12/testi-bg.jpg);
+  background: url(images/bg/home12/testi-bg.jpg);
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -11055,7 +11055,7 @@ body .modal-backdrop {
   background: red;
 }
 .rs-event.home12style {
-  background: url(assets/images/bg/home12/event-bg.jpg);
+  background: url(images/bg/home12/event-bg.jpg);
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -11540,7 +11540,7 @@ body .modal-backdrop {
   transform: translate(-50%, -50%);
 }
 .rs-cta.style1 {
-  background: url(assets/images/bg/pattern1.png);
+  background: url(images/bg/pattern1.png);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -11605,29 +11605,29 @@ body .modal-backdrop {
   z-index: -1;
 }
 .rs-cta.style2 .partition-bg-wrap:before {
-  background: url(assets/images/cta/style2/left-bg.jpg);
+  background: url(images/cta/style2/left-bg.jpg);
   left: 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .rs-cta.style2 .partition-bg-wrap:after {
-  background: url(assets/images/cta/style2/right-bg.jpg);
+  background: url(images/cta/style2/right-bg.jpg);
   right: 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: left;
 }
 .rs-cta.style2 .partition-bg-wrap.inner-page:before {
-  background: url(assets/images/cta/style2/left-bg2.png);
+  background: url(images/cta/style2/left-bg2.png);
   background-size: cover;
 }
 .rs-cta.style2 .partition-bg-wrap.inner-page:after {
-  background: url(assets/images/cta/style2/right-bg2.png);
+  background: url(images/cta/style2/right-bg2.png);
   background-size: cover;
 }
 .rs-cta.style3 {
-  background: url(assets/images/bg/pattern1.png);
+  background: url(images/bg/pattern1.png);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -11666,13 +11666,13 @@ body .modal-backdrop {
   z-index: -1;
 }
 .rs-cta.style7 .partition-bg-wrap:after {
-  background: url(assets/images/cta/home7/1.png);
+  background: url(images/cta/home7/1.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .rs-cta.style7 .partition-bg-wrap:before {
-  background: url(assets/images/cta/home7/2.png);
+  background: url(images/cta/home7/2.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -11693,13 +11693,13 @@ body .modal-backdrop {
   z-index: -1;
 }
 .rs-cta.main-home .partition-bg-wrap:after {
-  background: url(assets/images/cta/home1.jpg);
+  background: url(images/cta/home1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .rs-cta.main-home .partition-bg-wrap:before {
-  background: url(assets/images/cta/main-home.jpg);
+  background: url(images/cta/main-home.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   right: 0;
@@ -11719,7 +11719,7 @@ body .modal-backdrop {
   z-index: -1;
 }
 .rs-cta.home9-style .partition-bg-wrap:after {
-  background: url(assets/images/cta/covid-19.jpg);
+  background: url(images/cta/covid-19.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -11765,14 +11765,14 @@ body .modal-backdrop {
   padding-right: 15px;
 }
 .rs-cta.home11-style {
-  background: url(assets/images/cta/home11.jpg);
+  background: url(images/cta/home11.jpg);
   background-repeat: no-repeat;
   background-position: bottom;
 }
 .rs-cta.home-style14 {
   max-width: 700px;
   margin: 0 auto;
-  background: url(assets/images/bg/home14/cta.jpg);
+  background: url(images/bg/home14/cta.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -11808,7 +11808,7 @@ body .modal-backdrop {
 }
 .rs-cta.effects-layer .effects-bg.apply-bg {
   background-color: #F9F7F8;
-  background-image: url(assets/images/cta/style3/1-2.png);
+  background-image: url(images/cta/style3/1-2.png);
   background-position: bottom right;
   background-repeat: no-repeat;
   border-radius: 4px 4px 4px 4px;
@@ -11816,7 +11816,7 @@ body .modal-backdrop {
 }
 .rs-cta.effects-layer .effects-bg.enroll-bg {
   background-color: #F9F7F8;
-  background-image: url(assets/images/cta/style3/2.png);
+  background-image: url(images/cta/style3/2.png);
   background-position: bottom right;
   background-repeat: no-repeat;
   border-radius: 4px 4px 4px 4px;
@@ -11938,7 +11938,7 @@ body .modal-backdrop {
     24. Newsletter Section CSS
 ---------------------------------------*/
 .rs-newsletter.style1 .newsletter-wrap {
-  background: url(assets/images/bg/newsletter-bg.jpg);
+  background: url(images/bg/newsletter-bg.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 3px;
@@ -11983,7 +11983,7 @@ body .modal-backdrop {
   background: #2e4778;
 }
 .rs-newsletter.style1.modify1 .newsletter-wrap {
-  background: url(assets/images/bg/newslatter-bg15.jpg);
+  background: url(images/bg/newslatter-bg15.jpg);
 }
 .rs-newsletter.style1.modify1 .newsletter-wrap .newsletter-form button {
   background: #ff5421;
@@ -11992,7 +11992,7 @@ body .modal-backdrop {
   background: #ff5421;
 }
 .rs-newsletter.style2 {
-  background: url(assets/images/bg/newsletter-bg2.jpg);
+  background: url(images/bg/newsletter-bg2.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -12040,7 +12040,7 @@ body .modal-backdrop {
   background: #2db4de;
 }
 .rs-newsletter.style2.home11-style {
-  background: url(assets/images/bg/home11-news.jpg);
+  background: url(images/bg/home11-news.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -12524,7 +12524,7 @@ body .modal-backdrop {
   padding: 20px 14px 35px !important;
 }
 .rs-faq-part.style1 .img-part {
-  background: url(assets/images/faq/1.jpg);
+  background: url(images/faq/1.jpg);
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -14095,7 +14095,7 @@ body .modal-backdrop {
 ------------------------------------*/
 .rs-footer {
   background-color: #273c66;
-  background-image: url(assets/images/bg/footer-bg.png);
+  background-image: url(images/bg/footer-bg.png);
   background-size: cover;
 }
 .rs-footer .footer-top {
@@ -14282,7 +14282,7 @@ body .modal-backdrop {
 }
 .rs-footer.orange-footer {
   background-color: #151515;
-  background-image: url(assets/images/bg/footer-bg2.jpg);
+  background-image: url(images/bg/footer-bg2.jpg);
 }
 .rs-footer.orange-footer .footer-top .widget-title {
   color: #ffffff;
@@ -14575,7 +14575,7 @@ body .modal-backdrop {
   background: rgba(255, 255, 255, 0.1);
 }
 .rs-footer.home9-style.main-home.home13-style {
-  background: url(assets/images/bg/home13/footer.jpg);
+  background: url(images/bg/home13/footer.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }

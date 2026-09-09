@@ -1,25 +1,86 @@
-import os,json,re,requests
-def fallback(c):
- skills=len(c.skill_list()); ev=c.evidence.filter(verified=True).count(); score=min(98,35+min(35,skills*6)+min(20,float(c.experience_years)*5)+min(15,ev*5)); verdict="Strong Match" if score>=80 else ("Review" if score>=60 else "Needs Review")
- return int(score),verdict,f"Heuristic screening found {skills} listed skills, {c.experience_years:g} years experience and {ev} verified evidence item(s). Add stronger evidence or a complete resume for higher confidence."
-def analyze_candidate(c):
- token=os.getenv("HF_TOKEN","").strip(); model=os.getenv("HF_MODEL","HuggingFaceTB/SmolLM2-1.7B-Instruct"); base=os.getenv("HF_API_URL","https://router.huggingface.co/hf-inference/models").rstrip("/")
- prompt=f"You are HireProof AI. Analyze only supplied evidence. Return strict JSON with score (0-100), verdict (Strong Match/Review/Needs Review), summary (under 60 words). Candidate: {c.name}; role: {c.role}; experience: {c.experience_years}; skills: {c.skills}; resume: {c.resume_text[:5000]}; verified evidence: {c.evidence.filter(verified=True).count()}."
- if not token: return fallback(c)
- try:
-  r=requests.post(f"{base}/{model}",headers={"Authorization":f"Bearer {token}","Content-Type":"application/json"},json={"inputs":prompt,"parameters":{"max_new_tokens":180,"temperature":0.2}},timeout=35); r.raise_for_status(); data=r.json(); text=data[0].get("generated_text","") if isinstance(data,list) else data.get("generated_text",""); m=re.search(r"\{.*\}",text,re.S)
-  if m:
-   o=json.loads(m.group(0)); return max(0,min(100,int(o.get("score",0)))),str(o.get("verdict","Review")),str(o.get("summary","AI analysis completed."))
- except Exception: pass
- return fallback(c)
-def extract_resume_text(upload):
- if not upload:return ""
- try:
-  n=upload.name.lower()
-  if n.endswith(".pdf"):
-   from pypdf import PdfReader; return "\n".join((p.extract_text() or "") for p in PdfReader(upload).pages)[:12000]
-  if n.endswith(".docx"):
-   from docx import Document; return "\n".join(p.text for p in Document(upload).paragraphs)[:12000]
-  if n.endswith((".txt",".md")): return upload.read().decode("utf-8","ignore")[:12000]
- except Exception: pass
- return ""
+"""Evidence-based resume verification using Hugging Face Inference API."""
+import json
+import re
+import requests
+from django.conf import settings
+
+CLAIM_LABELS = [
+    "consistent and credible professional experience",
+    "exaggerated or inflated claims",
+    "vague or unverifiable claims",
+    "contradictory statements",
+]
+
+RED_FLAG_PATTERNS = [
+    (r"\b(ninja|guru|rockstar)\b", "Buzzword overuse without concrete evidence"),
+    (r"\b(\d{2,})\+?\s*years?\b", "Unusually high experience claim - verify against timeline"),
+    (r"\bexpert\b.{0,20}\ball\b", "Overly broad expertise claim"),
+]
+
+
+def _call_huggingface(text: str) -> dict:
+    """Call HF zero-shot-classification inference endpoint to score claim credibility."""
+    if not settings.HUGGINGFACE_API_KEY:
+        return {"error": "missing_api_key"}
+
+    headers = {"Authorization": f"Bearer {settings.HUGGINGFACE_API_KEY}"}
+    payload = {"inputs": text[:2000], "parameters": {"candidate_labels": CLAIM_LABELS}}
+    try:
+        resp = requests.post(settings.HUGGINGFACE_API_URL, headers=headers, json=payload, timeout=30)
+        resp.raise_for_status()
+        return resp.json()
+    except requests.RequestException as exc:
+        return {"error": str(exc)}
+
+
+def _rule_based_flags(text: str) -> list:
+    flags = []
+    for pattern, message in RED_FLAG_PATTERNS:
+        if re.search(pattern, text, re.IGNORECASE):
+            flags.append(message)
+    return flags
+
+
+def verify_resume_text(text: str) -> dict:
+    """Return an evidence-based verification dict for the given resume text."""
+    hf_result = _call_huggingface(text)
+    flags = _rule_based_flags(text)
+
+    scores_by_label = {}
+    if isinstance(hf_result, dict) and "labels" in hf_result and "scores" in hf_result:
+        scores_by_label = dict(zip(hf_result["labels"], hf_result["scores"]))
+
+    credible_score = scores_by_label.get("consistent and credible professional experience", 0.5)
+    exaggeration = scores_by_label.get("exaggerated or inflated claims", 0.0)
+    contradiction = scores_by_label.get("contradictory statements", 0.0)
+
+    evidence_score = round(credible_score * 100, 2)
+    consistency_score = round((1 - contradiction) * 100, 2)
+
+    if flags:
+        evidence_score = max(0, evidence_score - (10 * len(flags)))
+
+    if evidence_score >= 70 and not flags:
+        verdict = "credible"
+    elif evidence_score < 40 or contradiction > 0.5:
+        verdict = "suspicious"
+    else:
+        verdict = "needs_review"
+
+    summary_parts = [f"Credibility score: {evidence_score}/100."]
+    if exaggeration:
+        summary_parts.append(f"Exaggeration likelihood: {round(exaggeration * 100, 1)}%.")
+    if flags:
+        summary_parts.append(f"{len(flags)} rule-based flag(s) detected.")
+    if hf_result.get("error"):
+        summary_parts.append(f"AI model note: {hf_result['error']} (fell back to rule-based scoring).")
+
+    return {
+        "evidence_score": evidence_score,
+        "consistency_score": consistency_score,
+        "verdict": verdict,
+        "ai_summary": " ".join(summary_parts),
+        "flags": flags,
+        "model_used": settings.HUGGINGFACE_RESUME_MODEL,
+        "raw": hf_result,
+    }

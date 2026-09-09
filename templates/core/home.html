@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="rs-banner home9-style" style="background:linear-gradient(135deg,#0d1b2a,#1b3a5c);padding:100px 0;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto text-center white-color">
+        <h1 style="color:#fff;font-size:42px;font-weight:800;">Evidence-Based AI Candidate Verification</h1>
+        <p style="color:#dce6f2;font-size:18px;margin-top:20px;">HireProof-AI checks resumes for consistency, exaggeration and red flags using Hugging Face AI models &mdash; so recruiters hire on evidence, not guesswork.</p>
+        <div style="margin-top:30px;">
+          {% if user.is_authenticated %}
+            <a class="apply-btn" href="{% url 'candidates:upload_resume' %}">Verify a Resume</a>
+          {% else %}
+            <a class="apply-btn" href="{% url 'accounts:register' %}">Get Started Free</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container pt-80 pb-80">
+  <div class="row">
+    <div class="col-md-4 text-center mb-30">
+      <i class="flaticon-search" style="font-size:48px;color:#ff6a2b;"></i>
+      <h3>AI Consistency Check</h3>
+      <p>Every resume is scored for internal consistency and evidence backing using Hugging Face zero-shot classification.</p>
+    </div>
+    <div class="col-md-4 text-center mb-30">
+      <i class="flaticon-verified" style="font-size:48px;color:#ff6a2b;"></i>
+      <h3>Red-Flag Detection</h3>
+      <p>Rule-based checks catch buzzword stuffing, inflated experience claims and vague language automatically.</p>
+    </div>
+    <div class="col-md-4 text-center mb-30">
+      <i class="flaticon-email" style="font-size:48px;color:#ff6a2b;"></i>
+      <h3>Recruiter Dashboard</h3>
+      <p>Track every candidate's verification status, credibility score and verdict in one clean dashboard.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
