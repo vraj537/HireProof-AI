@@ -1,1 +1,95 @@
-{% load static %}<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{% block title %}HireProof AI{% endblock %}</title><link rel="shortcut icon" href="{% static 'assets/images/fav-orange.png' %}"><link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"><link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}"><link rel="stylesheet" href="{% static 'style.css' %}"><link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}"><link rel="stylesheet" href="{% static 'css/hireproof.css' %}"></head><body>{% if messages %}<div class="container pt-3">{% for m in messages %}<div class="alert alert-info">{{m}}</div>{% endfor %}</div>{% endif %}<div class="hp-top d-none d-md-block"><div class="container"><div class="d-flex justify-content-between py-2"><span><i class="fa fa-shield mr-1"></i> Evidence-first candidate verification</span><span>Hugging Face AI · Neon PostgreSQL · Django</span></div></div></div><header class="hp-header"><div class="container"><nav class="navbar navbar-expand-lg px-0 py-3"><a class="navbar-brand hp-brand" href="{% url 'dashboard' %}">Hire<span>Proof</span>-AI</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#hpNav"><i class="fa fa-bars"></i></button><div class="collapse navbar-collapse" id="hpNav"><ul class="navbar-nav ml-auto align-items-lg-center hp-nav"><li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li><li class="nav-item"><a class="nav-link" href="{% url 'candidates' %}">Candidates</a></li><li class="nav-item ml-lg-3"><a class="btn hp-btn" href="{% url 'candidate_new' %}">+ Verify Candidate</a></li></ul></div></nav></div></header>{% block content %}{% endblock %}<footer class="hp-footer mt-0 py-5"><div class="container"><div class="row"><div class="col-md-7"><h5><strong>HireProof-AI</strong></h5><p class="mb-0">Evidence-Based AI Candidate Verification &amp; Hiring Intelligence Platform</p></div><div class="col-md-5 text-md-right mt-3 mt-md-0">Built with Python · Django · Neon · Hugging Face</div></div></div></footer><script src="{% static 'assets/js/jquery.min.js' %}"></script><script src="{% static 'assets/js/bootstrap.min.js' %}"></script></body></html>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}HireProof-AI{% endblock %} - Evidence-Based Hiring Intelligence</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/fav-orange.png' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/off-canvas.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/linea-fonts.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rsmenu-main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rs-spacing.css' %}">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="defult-home">
+
+<div class="main-content">
+  <div class="full-width-header home8-style4 main-home">
+    <header id="rs-header" class="rs-header">
+      <div class="menu-area menu-sticky">
+        <div class="container">
+          <div class="row y-middle">
+            <div class="col-lg-3">
+              <div class="logo-cat-wrap">
+                <div class="logo-part">
+                  <a href="{% url 'core:home' %}" style="font-size:26px;font-weight:800;color:#fff;">HireProof<span style="color:#ff6a2b;">-AI</span></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 text-right">
+              <div class="rs-menu-area">
+                <div class="main-menu">
+                  <div class="mobile-menu">
+                    <a class="rs-menu-toggle"><i class="fa fa-bars"></i></a>
+                  </div>
+                  <nav class="rs-menu">
+                    <ul class="nav-menu">
+                      <li><a href="{% url 'core:home' %}">Home</a></li>
+                      {% if user.is_authenticated %}
+                        <li><a href="{% url 'candidates:dashboard' %}">Dashboard</a></li>
+                        <li><a href="{% url 'candidates:upload_resume' %}">Verify Resume</a></li>
+                      {% endif %}
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 text-right">
+              {% if user.is_authenticated %}
+                <a class="apply-btn" href="{% url 'accounts:logout' %}">Logout ({{ user.username }})</a>
+              {% else %}
+                <a class="apply-btn" href="{% url 'accounts:login' %}">Login</a>
+                <a class="apply-btn" href="{% url 'accounts:register' %}">Register</a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  {% if messages %}
+    <div class="container mt-3">
+      {% for message in messages %}
+        <div class="alert alert-info">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% block content %}{% endblock %}
+
+  <footer id="rs-footer" class="rs-footer home9-style main-home">
+    <div class="container">
+      <div class="row pt-50 pb-30">
+        <div class="col-lg-12 text-center white-color">
+          <p>&copy; {% now "Y" %} HireProof-AI &mdash; Evidence-Based AI Candidate Verification &amp; Hiring Intelligence Platform</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>
